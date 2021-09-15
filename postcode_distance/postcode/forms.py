@@ -8,4 +8,4 @@ MEASUREMENT_UNITS = [
 class PostcodeForm(forms.Form):
     start_postcode = forms.CharField(max_length=4)
     end_postcode = forms.CharField(max_length=4)
-    distance_unit = forms.ChoiceField(choices=MEASUREMENT_UNITS, label='Distance in', widget=forms.RadioSelect(choices=MEASUREMENT_UNITS)  )
+    distance_unit = forms.ChoiceField(choices=MEASUREMENT_UNITS, label='Distance in', widget=forms.RadioSelect(choices=MEASUREMENT_UNITS), initial='KM'  )
