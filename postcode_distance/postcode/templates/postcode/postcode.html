@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Distance between two postcodes{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <table>
+        {{ form }}
+    </table>
+    {% csrf_token %}
+    <button type="submit">Calculate Distance</button>
+</form>
+
+{% if distance_result %}
+<h1>{{ distance_result }} {{measurement_unit }}</h1>
+{% endif %}
+
+{% endblock %}
