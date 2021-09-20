@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from postcode.views import postcode
+#from postcode.views import postcode
+from postcode.views import PostCode
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', postcode, name="postcode")
+    path('', PostCode.as_view(), name="PostCode")
 ]
 
