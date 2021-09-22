@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Distance between two postcodes{% endblock %}
 
 {% block content %}
 <form method="POST">
-    <table>
-        {{ form }}
-    </table>
+    <div class="row justify-content-center">
     {% csrf_token %}
-    <button type="submit" class="btn btn-primary">Calculate Distance</button>
+    {{ form | crispy }}
+</div>
+    <button type="submit" class="btn btn-success">Calculate Distance</button>
+
 </form>
 
 {% if distance_result %}
