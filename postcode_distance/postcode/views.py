@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import PostcodeForm
 from .models import Postcode
 from django.views import View
+from django.template.response import TemplateResponse
 import pgeocode
 
 
@@ -11,8 +12,8 @@ class PostCode(View):
 
     def get(self, request, *args, **kwargs):
         form = self.form()
-        return render(request, "postcode/postcode.html", {"form": form})
-
+        return TemplateResponse(request, "postcode/postcode.html", {"form": form} )
+    
     def post(self, request):
 
         form = PostcodeForm(request.POST)
@@ -45,4 +46,4 @@ class PostCode(View):
 
             distance_result = round(distance_result, 2)
 
-            return render(request, "postcode/postcode.html", {"form": form, "distance_result": distance_result, 'measurement_unit': measurement_unit})
+            return TemplateResponse(request, "postcode/postcode.html", {"form": form, "distance_result": distance_result, 'measurement_unit': measurement_unit} )
