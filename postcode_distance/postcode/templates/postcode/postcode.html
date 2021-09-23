@@ -6,16 +6,19 @@
 
 {% block content %}
 <form method="POST">
-    <div class="row justify-content-center">
-    {% csrf_token %}
-    {{ form | crispy }}
-</div>
-    <button type="submit" class="btn btn-success">Calculate Distance</button>
-
+        {% csrf_token %}
+        {{ form | crispy }}
+    <div class="row">
+        <button type="submit" class="btn btn-success">Calculate Distance</button>
+    </div>
 </form>
 
+
+
 {% if distance_result %}
-<h1>{{ distance_result }} {{measurement_unit }}</h1>
+<h1 class="row mt-3 justify-content-center">{{ distance_result }} {{measurement_unit }}</h1>
 {% endif %}
+
+
 
 {% endblock %}
