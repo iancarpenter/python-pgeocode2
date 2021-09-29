@@ -5,7 +5,6 @@ from django.views import View
 from django.template.response import TemplateResponse
 import pgeocode
 
-
 class PostCode(View):
     
     form = PostcodeForm
@@ -31,6 +30,7 @@ class PostCode(View):
             pc.save()
 
             start_postcode = form['start_postcode'].value()
+            
             end_postcode = form['end_postcode'].value()
 
             dist = pgeocode.GeoDistance('GB')
@@ -41,7 +41,8 @@ class PostCode(View):
 
             if form['distance_unit'].value() == 'M':
                 # convert to miles 
-                distance_result = distance_result / 1.609
+                distance_result /= 1.609
+                
                 measurement_unit = 'miles'
 
             distance_result = round(distance_result, 2)

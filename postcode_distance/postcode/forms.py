@@ -32,4 +32,4 @@ class PostcodeForm(forms.Form):
         self.helper.form_method = 'post'
         self.helper.form_action = ''
 
-        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.add_input(Submit('submit', 'Calculate'))
